@@ -1,0 +1,17 @@
+import pandas as pd
+import joblib
+
+# تحميل النموذج
+model = joblib.load("near_loss_model.pkl")
+
+# بيانات جديدة للتجربة
+new_data = pd.DataFrame([{
+    'Score': 200,
+    'MaxTile': 16,
+    'MoveTime(ms)': 150,
+    'EmptyTiles': 2
+}])
+
+# التنبؤ
+prediction = model.predict(new_data)
+print("🚨 قريب من الخسارة؟", "نعم" if prediction[0] == 1 else "لا")

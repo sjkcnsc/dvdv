@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+  min-height: 100vh;
+  direction: rtl;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* عنوان اللعبة */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #6a0dad;
+  margin-bottom: 20px;
+}
+
+/* النقاط والتحكم */
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.score-board {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* أزرار */
+button {
+  padding: 10px 20px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #6a0dad;
+}
+
+/* الشبكة */
+.grid {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 auto 30px auto;
+  background-color: #bbada0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.grid div {
+  width: 100%;
+  height: 100%;
+  background-color: #afa192;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+/* ✅ صندوق التحذير والتوصية داخل الواجهة */
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* كل صندوق */
+.alert-box {
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+/* توصية */
+#recommendationBox {
+  background-color: #fff8dc;
+  color: #8a6d3b;
+  border: 1px solid #f0c36d;
+}
+
+/* تحذير */
+#warningBox {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+#warningBox.warning {
+  animation: fadeInOut 3s ease-in-out;
+}
+
+/* حركة التحذير */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ✅ صندوق مؤشر الخطر */
+.gauge-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* الداشبورد */
+.dashboard {
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+.dashboard h2 {
+  text-align: center;
+  color: #6a0dad;
+  margin-bottom: 30px;
+}
+
+/* الرسوم */
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+canvas {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}

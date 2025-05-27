@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2048 - Fatima 👑</title>
+  <link rel="stylesheet" href="style.css" /> <!--اربط ملف التصميم style.css ليتم تطبيق الألوان، الخطوط، والتهيئة على عناصر الصفحة-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- عنوان -->
+    <h1>لعبة 2048 👑</h1>
+
+    <!-- معلومات اللعبة -->
+    <div class="game-info">
+      <div class="score-board">
+        <span>النقاط: <span id="score">0</span></span>
+        <span id="result"></span>
+      </div>
+      <button id="toggleSound">تشغيل الصوت 🔈</button>
+      <button id="restartBtn" style="display:none;">إعادة تشغيل اللعبة 🔄</button>
+    </div>
+
+    <!-- ✅ توصية وتحذير ومؤشر داخل اللعبة -->
+    <div class="alert-container"><!-- حاويه تحتوي على كل تحذيرات بلعبه وهون ستخدمنها لتنسيق -->
+      <div id="recommendationBox" class="alert-box" style="display: none;">
+        📌 توصية:
+      </div>
+      <div id="warningBox" class="alert-box warning" style="display: none;">
+        ⚠️ انتبه! يبدو أنك قريب من الخسارة!
+      </div>
+      <!-- python app.py اذا الموشر ما شتغل ضع هذه العباره في التيرمنال-->
+
+  <!-- مؤشر الخطر -->
+  <div class="gauge-box">
+    <h4 style="margin: 0;">⚠️ مؤشر الخطر</h4>
+    <canvas id="dangerGauge" width="120" height="80"></canvas>
+  </div>
+</div>
+
+
+    <!-- شبكة(grid) -->
+    <div class="game-area">
+      <div class="grid"></div>
+    </div>
+
+    <!-- 🎯 لوحة تحكم التحليلات -->
+    <section class="dashboard">
+      <h2>لوحة تحكم تحليلات اللاعب 🎮</h2>
+      <div class="charts">
+
+        <!-- مخطط الزمن بين الحركات -->
+        <div>
+          <h4 style="text-align:center;">⏱️ تحليل الزمن بين الحركات</h4>
+          <canvas id="moveTimeChart" width="400" height="300"></canvas>
+        </div>
+
+        <!-- مخطط أعلى بلاطة -->
+        <div>
+          <h4 style="text-align:center;">📈 أعلى بلاطة وصلت لها خلال الجلسة</h4>
+          <canvas id="maxTileChart" width="400" height="300"></canvas>
+        </div>
+
+        <!-- مخطط اتجاهات الحركة -->
+        <div>
+          <h4 style="text-align:center;">تحليل اتجاهات الحركة</h4>
+          <canvas id="moveChart" width="400" height="300"></canvas>
+        </div>
+
+        <!-- مخطط الفوز والخسارة -->
+        <div>
+          <h4 style="text-align:center;">نسبة الفوز والخسارة</h4>
+          <canvas id="winLossChart" width="400" height="300"></canvas>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- مشغّل الصوت -->
+  <audio id="bgMusic" loop>
+    <source src="609440__andrecani__gaming-acoustic-music-by-andre.wav" type="audio/wav" />
+  </audio>
+  <!-- python app.py
+streamlit run streamlit_dashboard.py
+-->
+
+  <script src="script.js"></script>  <!--شغل ملف script.js الذي يحتوي على أكواد اللعبة: حركة الأرقام، جمعها، تحديث النتيجة، إلخ.-->
+</body>
+
+</html>
